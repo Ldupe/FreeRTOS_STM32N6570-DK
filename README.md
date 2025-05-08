@@ -105,26 +105,26 @@ You should see the Green LED1 toggling at the bottom left of the [STM32N6570-DK]
 You can debug the project in a way that allows you to monitor the **execution of the FSBL, the jump from the FSBL to the Application, and then the execution of the application.**  
 To do so :
 
-* **Flash** the binaries using the *flash.sh* script while in DEV_BOOT mode (See above)
+* **Flash** the binaries using the *flash.sh* script while in DEV_BOOT mode (See above).
 * Leave the board in **DEV_BOOT** mode to be able to enter Debug.
 * **Start the debug** session of the *Appli* project using STM32CubeIDE.  
-**The Debug session wil start in the FSBL and you will be able to debug the FSBL, the jump and then the Application.**
-* If you need to add **breakpoints**, right click where you want to put your breakpoint instead of a left click, then select *Add breakpoint* them select ***Hardware*** for *Type*.
+**The Debug session wil start in the FSBL and you will be able to debug the FSBL, the jump and the Application.**
+* If you need to add **breakpoints**, right click where you want to put your breakpoint instead of a double click, then select *Add breakpoint* them select ***Hardware*** for *Type*.
 
 The debug specific configuration should be already saved in the project so no other step is required.  
-For you reference, here is the Debug Configuration being used to monitor both FSBL, the jump and the App :
+For you reference, here is the Debug Configuration being used to monitor the FSBL, the jump and the App :
 * Select the Appli project > Debug As > Debug Configuration > Startup
-* Add item > Select the FSBL project > Uncheck Build > Check Download
-* Edit item > Select the Appli project > Uncheck Download
+    * Add item > Select the FSBL project > Uncheck Build > Check Download
+    * Edit item > Select the Appli project > Uncheck Download
 
 ## Implement your changes
 
-Using [STM32CubeMX](http://www.st.com/stm32cubemx)
-* Make sure that you have downloaded and installed the pack [ARM.CMSIS-FreeRTOS.11.1.0.pack](https://keilpack.azureedge.net/pack/ARM.CMSIS-FreeRTOS.11.1.0.pack)
-* Open the *FreeRTOS_STM32N6570-DK.ioc* file with [STM32CubeMX](http://www.st.com/stm32cubemx)
-* Proceede to your changes to the FSBL and App and click *Generate Code* once finished
+Using [STM32CubeMX](http://www.st.com/stm32cubemx) :
+* Make sure that you have downloaded and installed the pack [ARM.CMSIS-FreeRTOS.11.1.0.pack](https://keilpack.azureedge.net/pack/ARM.CMSIS-FreeRTOS.11.1.0.pack).
+* Open the *FreeRTOS_STM32N6570-DK.ioc* file with [STM32CubeMX](http://www.st.com/stm32cubemx).
+* Proceede to your changes and click *Generate Code* once finished.
 * Open the project in [STM32CubeIDE](https://www.st.com/stm32cubeide), build the FSBL and Appli projects and flash and debug as indicated above.
 
-Using [STM32CubeIDE](https://www.st.com/stm32cubeide)
-* Proceede to your changes in the FSBL and Appli project.
+Using [STM32CubeIDE](https://www.st.com/stm32cubeide) :
+* Proceede to your changes in the FSBL and Appli projects.
 * Build the FSBL and Appli projects and flash and debug as indicated above.
