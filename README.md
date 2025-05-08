@@ -10,21 +10,21 @@ Because of this specificity, the procedure to create projects, flash and debug  
 
 ### Memory usage
 STM32N6 devices allow you to load and execute your code from different memory units. You can either :
-* <u>Load and execute</u> the FW from <u>internal memory SRAM</u>
-* <u>Load</u> in one of the available type of <u>External Memory</u> Unit and <u>execute</u> the FW from <u>internal memory SRAM</u>
-* <u>Load and execute</u> the FW from one <u>External Memory</u> Unit (XiP Execute in Place)
+* **Load and execute** the FW from **internal memory SRAM**
+* **Load** in one of the available type of **External Memory** Unit and **execute** the FW from **internal memory SRAM**
+* **Load and execute** the FW from one **External Memory** Unit (XiP Execute in Place)
 
->In this repository we used the most common and easier to work with setup :
+>In this repository we used the most common and easiest to work with setup :
 we will **flash our binaries in the External Flash NOR memory unit and execute from the SRAM.**
 
 
 ### Projects structure
 STM32N6 Projects available structures are the following :
-* <u>FSBL only</u> : a First Stage Boot Loader that integrates your FW, assuming the FW is simple and lightweight
-* <u>FSBL + Application</u> : FSBL is used to set up the application running depending on its location and can integrate minor tasks. The application is your FW.
-* <u>FSBL + Non Secure Application + Secure Application</u> : same as previous adding a dedicated project and memory location to protect the Secure Application project content.
+* **FSBL only** : a First Stage Boot Loader that integrates your FW, assuming the FW is simple and lightweight
+* **FSBL + Application** : FSBL is used to set up the application running depending on its location and can integrate minor tasks. The application is your FW.
+* **FSBL + Non Secure Application + Secure Application** : same as previous adding a dedicated project and memory location to protect the Secure Application project content.
 
->In this repository we used the most common and easier to work with project structure for N6 boards, the **FSBL + Application**.  In our project :
+>In this repository we used the most common and easiest to work with project structure for N6 boards, the **FSBL + Application**.  In our project :
 >* The FSBL is used to configure the **System Clock**
 >* The App integrates **FreeRTOS**, and implements a **FreeRTOS tasks that toggles an LED**.
 
