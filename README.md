@@ -32,12 +32,12 @@ STM32N6 Projects available structures are the following :
 
 * After a Reset, the integrated BootROM of the board executes.
 * If the FSBL was loaded in an external flash, BootROM copies it from there into the SRAM.
-    >This project case :  copies the FSBL from the External flash 0x70000000 into the SRAM 0x34180000
+    >This project case :  copies the FSBL from the NOR External flash 0x70000000 into the SRAM 0x34180000
 * Jump from the BootROM into the FSBL and FSBL executes.
 * If an application project was loaded in an external memory, then :
     * if running from external memory, sets up the execute in place,  
      otherwise copies the Application from the External memory into the SRAM.
-        >This project case :  copies the Application from the External flash 0x70100000 into the SRAM 0x034000000.
+        >This project case :  copies the Application from the NOR External flash 0x70100000 into the SRAM 0x034000000.
 
     * Jump from the FSBL into the Application
     * The Application executes
@@ -107,8 +107,9 @@ To do so :
 
 * **Flash** the binaries using the *flash.sh* script while in DEV_BOOT mode (See above)
 * Leave the board in **DEV_BOOT** mode to be able to enter Debug.
-* **Start the debug** session of the *Appli* project using STM32CubeIDE.
-* If you need to add **breakpoint**, right click where you want to put your breakpoint instead of a left click, then select *Add breakpoint* them select ***Hardware*** for *Type*.
+* **Start the debug** session of the *Appli* project using STM32CubeIDE.  
+**The Debug session wil start in the FSBL and you will be able to debug the FSBL, the jump and then the Application.**
+* If you need to add **breakpoints**, right click where you want to put your breakpoint instead of a left click, then select *Add breakpoint* them select ***Hardware*** for *Type*.
 
 The debug specific configuration should be already saved in the project so no other step is required.  
 For you reference, here is the Debug Configuration being used to monitor both FSBL, the jump and the App :

@@ -5,6 +5,7 @@ APP_NAME="FreeRTOS_STM32N6570-DK"
 FSBL_BIN_FILE="./FSBL/Debug/${APP_NAME}_FSBL.bin"
 APP_BIN_FILE="./Appli/Debug/${APP_NAME}_Appli.bin"
 
+#NOR EXTERNAL FLASH Start Address : 0x70000000
 FLASH_FSBL_ADDRESS=0x70000000
 FLASH_APP_ADDRESS=0x70100000
 
@@ -35,9 +36,9 @@ case "$OS" in
         ;;
 esac
 
-## Required FSBL signing for BOOTROM jump (adds padding and header)
+## Required FSBL signing for BOOTROM copy and jump (adds padding and header)
 "$SIGNING_TOOL" -bin "$FSBL_BIN_FILE" -nk -of 0x80000000 -t fsbl -o FSBL-trusted.bin -hv 2.3 -dump FSBL-trusted.bin
-## Required Appli signing for FSBL jump (adds padding and header)
+## Required Appli signing for FSBL copy and jump (adds padding and header)
 "$SIGNING_TOOL" -bin "$APP_BIN_FILE" -nk -of 0x80000000 -t fsbl -o Appli-trusted.bin -hv 2.3 -dump Appli-trusted.bin
 
 ## Flash the device with the signed binaries in the NOR EXTERNAL FLASH
