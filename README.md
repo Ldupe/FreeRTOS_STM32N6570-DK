@@ -10,9 +10,9 @@ Because of this specificity, the procedure to create projects, flash and debug  
 
 ### Memory usage
 STM32N6 devices allow you to load and execute your code from different memory units. You can either :
-* **Load and execute** the FW from **internal memory SRAM**
-* **Load** in one of the available type of **External Memory** Unit and **execute** the FW from **internal memory SRAM**
-* **Load and execute** the FW from one **External Memory** Unit (XiP Execute in Place)
+* **Load and execute** the FW from **internal memory SRAM**.
+* **Load** in one of the available type of **External Memory** Unit and **execute** the FW from **internal memory SRAM**.
+* **Load and execute** the FW from one **External Memory** Unit (XiP Execute in Place).
 
 >In this repository we used the most common and easiest to work with setup :
 we will **flash our binaries in the External Flash NOR memory unit and execute from the SRAM.**
@@ -20,7 +20,7 @@ we will **flash our binaries in the External Flash NOR memory unit and execute f
 
 ### Projects structure
 STM32N6 Projects available structures are the following :
-* **FSBL only** : a First Stage Boot Loader that integrates your FW, assuming the FW is simple and lightweight
+* **FSBL only** : a First Stage Boot Loader that integrates your FW, assuming the FW is simple and lightweight.
 * **FSBL + Application** : FSBL is used to set up the application running depending on its location and can integrate minor tasks. The application is your FW.
 * **FSBL + Non Secure Application + Secure Application** : same as previous adding a dedicated project and memory location to protect the Secure Application project content.
 
