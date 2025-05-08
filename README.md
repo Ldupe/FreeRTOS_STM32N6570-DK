@@ -35,12 +35,12 @@ STM32N6 Projects available structures are the following :
     >This project case :  copies the FSBL from the NOR External flash 0x70000000 into the SRAM 0x34180000
 * Jump from the BootROM into the FSBL copy located in the SRAM and FSBL executes from the SRAM.
 * If an application project was loaded in an external memory, then :
-    * if running from external memory, FSBL sets up the execute in place running environment,  
-     otherwise copies the Application from the External memory into the SRAM.
+    * If running from external memory, FSBL sets up the execute in place running environment.  
+     Otherwise copies the Application from the External memory into the SRAM.
         >This project case :  copies the Application from the NOR External flash 0x70100000 into the SRAM 0x034000000.
 
-    * Jump from the FSBL into the Application
-    * The Application executes
+    * Jump from the FSBL into the Application.
+    * The Application executes.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ To be able to use **STM32N6** boards, you will need the following software tools
 To clone this repo you will need [GitBash](https://git-scm.com/downloads).
 
 ### CMSIS packs
-If you want to be able to modify the [STM32CubeMX](http://www.st.com/stm32cubemx) .ioc file of this project and be able to re-generate the code, you will need to download and install the follwing pack on STM32CubeMX.
+If you want to be able to modify the *FreeRTOS_STM32N6570-DK.ioc* file of this project and be able to re-generate the code with [STM32CubeMX](http://www.st.com/stm32cubemx), you will need to download and install the following pack on STM32CubeMX :
 * [ARM.CMSIS-FreeRTOS.11.1.0.pack](https://keilpack.azureedge.net/pack/ARM.CMSIS-FreeRTOS.11.1.0.pack)
 
 
@@ -116,18 +116,6 @@ For you reference, here is the Debug Configuration being used to monitor both FS
 * Select the Appli project > Debug As > Debug Configuration > Startup
 * Add item > Select the FSBL project > Uncheck Build > Check Download
 * Edit item > Select the Appli project > Uncheck Download
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## Implement your changes
 
