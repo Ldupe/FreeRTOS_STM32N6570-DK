@@ -31,11 +31,11 @@ STM32N6 Projects available structures are the following :
 ### FW execution workflow
 
 * After a Reset, the integrated BootROM of the board executes.
-* If the FSBL was loaded in an external flash, BootROM copies it from there into the SRAM.
+* If the FSBL was loaded in an external memory unit, BootROM copies it from there into the internal memory SRAM.
     >This project case :  copies the FSBL from the NOR External flash 0x70000000 into the SRAM 0x34180000
-* Jump from the BootROM into the FSBL and FSBL executes.
+* Jump from the BootROM into the FSBL copy located in the SRAM and FSBL executes from the SRAM.
 * If an application project was loaded in an external memory, then :
-    * if running from external memory, sets up the execute in place,  
+    * if running from external memory, FSBL sets up the execute in place running environment,  
      otherwise copies the Application from the External memory into the SRAM.
         >This project case :  copies the Application from the NOR External flash 0x70100000 into the SRAM 0x034000000.
 
