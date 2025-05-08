@@ -60,7 +60,7 @@ If you want to be able to modify the *FreeRTOS_STM32N6570-DK.ioc* file of this p
 ## Running the project on your N6 board
 
 ### Clone the repository
-Open a GitBash window in the location your want to import the project in and run the following commands :
+Open a GitBash window in the location you want to import the project into and run the following commands :
 
 ```bash
 git clone https://github.com/Ldupe/FreeRTOS_STM32N6570-DK.git
@@ -74,13 +74,13 @@ git submodule update --init --recursive
 ### Flash the project
 
 STM32N6 boards require binaries to be signed and flashed in a specific way. To do so :
-* Connect your board to your PC using STLink
+* Connect your board to your PC using STLink.
 
 <img src="BOOT_pins.jpg" alt="My Image" width="500">
 
 
-* Place the board BOOT switches in DEV_BOOT mode
-* Hit the Reset button for the switch new position to be taken into account.
+* Place the board BOOT switches in DEV_BOOT mode.
+* Hit the Reset button for the switches new position to be taken into account.
 * Open a GitBash window in the *FreeRTOS_STM32N6570-DK* folder.  
   Run the following command in GitBash to run the *flash.sh* script that will sign and flash both the FSBL and Appli binaries into your board :
 
@@ -94,8 +94,8 @@ STM32N6 boards require binaries to be signed and flashed in a specific way. To d
     * *Make sure that the binary generation is enabled in both the FSBL and Appli project configuration :  
     Properties > C/C++ Build > Settings > MCU/MPU Post build outputs > Check "Convert to binary file" box*
 
-* Place the board BOOT switches in FLASH_BOOT mode  :
-* Hit the Reset button for the switch new position to be taken into account.
+* Place the board BOOT switches in FLASH_BOOT mode.
+* Hit the Reset button for the switches new position to be taken into account and start the FW execution.
 
 **The project should start running.  
 You should see the Green LED1 toggling at the bottom left of the [STM32N6570-DK](https://www.st.com/en/evaluation-tools/stm32n6570-dk.html) board.**
