@@ -98,7 +98,7 @@ STM32N6 boards require binaries to be signed and flashed in a specific way. To d
 * Hit the Reset button for the switches new position to be taken into account and start the FW execution.
 
 **The project should start running.  
-You should see the Green LED1 toggling at the bottom left of the [STM32N6570-DK](https://www.st.com/en/evaluation-tools/stm32n6570-dk.html) board.**
+You should see the Green LED2 toggling at the bottom left of the [STM32N6570-DK](https://www.st.com/en/evaluation-tools/stm32n6570-dk.html) board.**
 
 ## Debugging the project
 
