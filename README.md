@@ -69,17 +69,17 @@ git submodule update --init --recursive
 ### Build the project
 
 * Import the project folder *FreeRTOS_STM32N6570-DK* in [STM32CubeIDE](https://www.st.com/stm32cubeide).
-* You should obtain one project containing the two subprojects *Appli* and *FSBL*. Build both of them.
+* You should obtain one project containing the two subprojects *Appli* and *FSBL*.  
+    Build both of them.
 
 ### Flash the project
 
 STM32N6 boards require binaries to be signed and flashed in a specific way. To do so :
 * Connect your board to your PC using STLink.
+* Set your STM32N6 board in DEV_BOOT mode, meaning the Boot Pin switch buttons are set as following :
 
-<img src="BOOT_pins.jpg" alt="My Image" width="500">
+   <img src="./Resources/DEV-BOOT_pins.jpg" alt="My Image" width="500">
 
-
-* Place the board BOOT switches in DEV_BOOT mode.
 * Hit the Reset button for the switches new position to be taken into account.
 * Open a GitBash window in the *FreeRTOS_STM32N6570-DK* folder.  
   Run the following command in GitBash to run the *flash.sh* script that will sign and flash both the FSBL and Appli binaries into your board :
@@ -94,11 +94,21 @@ STM32N6 boards require binaries to be signed and flashed in a specific way. To d
     * *Make sure that the binary generation is enabled in both the FSBL and Appli project configuration :  
     Properties > C/C++ Build > Settings > MCU/MPU Post build outputs > Check "Convert to binary file" box*
 
-* Place the board BOOT switches in FLASH_BOOT mode.
+* Switch the board to FLASH_BOOT mode, meaning the Boot Pin switch buttons are set as following :  
+
+   <img src="./Resources/FLASH-BOOT_pins.jpg" alt="My Image" width="500">
+
 * Hit the Reset button for the switches new position to be taken into account and start the FW execution.
 
 **The project should start running.  
 You should see the Green LED2 toggling at the bottom left of the [STM32N6570-DK](https://www.st.com/en/evaluation-tools/stm32n6570-dk.html) board.**
+
+***Troubleshoot : if the Red LED1 is on***  
+   * *It could mean you have not hit the reset button*
+   * *It could mean you are still in DEV_BOOT mode : switch the BootPins to FLASH_Boot mode and hit the Reset button*  
+   * *Try powercycling the board*    
+   * *It could mean that the BootROM is failing to find the firmware code. Flash the board again by starting over the steps of this section*
+
 
 ## Debugging the project
 
